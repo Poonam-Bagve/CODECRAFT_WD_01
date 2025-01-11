@@ -1,0 +1,217 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Navigation Menu */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and other elements */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+    background-color: #490c8b;
+    color: white;
+    position: fixed;
+    top: 0;
+    height:70px;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.navbar.scrolled {
+    background-color: #555;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover {
+    color: #f39c12;
+}
+/* Active state for mobile menu */
+.nav-links {
+    display: flex;
+    flex-direction: row;
+}
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 999;
+}
+/* Menu Toggle (for mobile) */
+.menu-toggle {
+    display: none; /* Hidden on larger screens */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.menu-toggle span {
+    display: flex;
+    width: 35px;
+    height: 3px;
+    background: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-toggle i {
+    font-size: 1.8rem;
+    padding-left: 200px;
+}
+
+.menu-toggle.active .fa-bars {
+    display: none;
+}
+.menu-toggle.active .fa-times {
+    display: inline; /* Close icon */
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to right, #3366CC, #CC0099);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.cta-button {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #e67e22;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .cta-button {
+        padding: 8px 16px;
+    }
+}
+/* Section Styles */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+.section:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1, .hero p, .cta-button {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Add hover effects to sections */
+.section {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.section:hover {
+    transform: scale(1.05);
+    color: #062b6cdd;
+    background-color:beige;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhance button hover */
+.cta-button {
+    transition: box-shadow 0.3s ease;
+}
+.cta-button:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
